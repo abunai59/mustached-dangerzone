@@ -18,7 +18,10 @@ __location__ = os.path.realpath(
 __resources__ = __location__ + "\\..\\resources"
 
 # Define the window size
-size = [700,500]
+w_scale = 60
+w_width = 16*w_scale
+w_height = 9*w_scale
+size = [w_width, w_height]
 # Create a screen from the screen size
 screen=pygame.display.set_mode(size)
 # Set the window title
@@ -32,6 +35,7 @@ background.fill(black)
 background_pos = [0,0]
 # Define initial background image
 background_img = pygame.image.load(__resources__ +"\default.png").convert()
+background_img = pygame.transform.scale(background_img, (w_width, w_height))
 
 # Check for user quitting
 done = False
