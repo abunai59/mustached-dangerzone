@@ -1,13 +1,11 @@
 # State machine
 # By: abunai59
 
-from enum import Enum
-
-States = Enum(DEFAULT=0, NORMAL=1, MENU=2, PAUSE=3)
+#from enum import Enum
 
 class StateMachine:
-    def __init__(self):
-        self.state = States.DEFAULT
+    def __init__(self, states):
+        self.state = states.DEFAULT
 
     def current_state(self):
         return self.state
