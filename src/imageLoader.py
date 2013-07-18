@@ -4,20 +4,12 @@
 import glob
 
 class ImageLoader:
-    def __init__(self, res_path):
+    def __init__(self, res_path, extensions):
         # Load image paths
         pref = res_path + "\\*."
-        self.img_list = \
-            glob.glob(pref+"png") + \
-            glob.glob(pref+"jpg") + \
-            glob.glob(pref+"gif") + \
-            glob.glob(pref+"bmp") + \
-            glob.glob(pref+"pcx") + \
-            glob.glob(pref+"tga") + \
-            glob.glob(pref+"tif") + \
-            glob.glob(pref+"lbm") + \
-            glob.glob(pref+"pbm") + \
-            glob.glob(pref+"xpm")
+        self.img_list = []
+        for ext in extensions:
+            self.img_list += glob.glob(pref+ext)
 
         # Current image is the first in the list
         self.__current_index = 0
